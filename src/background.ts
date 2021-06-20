@@ -1,6 +1,6 @@
 import { app, protocol, BrowserWindow } from 'electron';
 import { createProtocol } from 'vue-cli-plugin-electron-builder/lib';
-import installExtension, { VUEJS_DEVTOOLS } from 'electron-devtools-installer';
+import installExtension, { VUEJS3_DEVTOOLS } from 'electron-devtools-installer';
 
 const isDevelopment = process.env.NODE_ENV !== 'production';
 
@@ -12,8 +12,8 @@ protocol.registerSchemesAsPrivileged([
 async function createWindow() {
     // Create the browser window.
     const win = new BrowserWindow({
-        width: 800,
-        height: 600,
+        width: 1280,
+        height: 720,
         webPreferences: {
 
             // Use pluginOptions.nodeIntegration, leave this alone
@@ -26,7 +26,7 @@ async function createWindow() {
     });
 
     if (process.env.WEBPACK_DEV_SERVER_URL) {
-    // Load the url of the dev server if in development mode
+        // Load the url of the dev server if in development mode
         await win.loadURL(process.env.WEBPACK_DEV_SERVER_URL as string);
         if (!process.env.IS_TEST) win.webContents.openDevTools();
     } else {
@@ -56,9 +56,9 @@ app.on('activate', () => {
 // Some APIs can only be used after this event occurs.
 app.on('ready', async () => {
     if (isDevelopment && !process.env.IS_TEST) {
-    // Install Vue Devtools
+        // Install Vue Devtools
         try {
-            await installExtension(VUEJS_DEVTOOLS);
+            await installExtension(VUEJS3_DEVTOOLS);
         } catch (e) {
             console.error('Vue Devtools failed to install:', e.toString());
         }
