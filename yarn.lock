@@ -1009,6 +1009,11 @@
     call-me-maybe "^1.0.1"
     glob-to-regexp "^0.3.0"
 
+"@nebrob/event-emitter@^1.0.9":
+  version "1.0.9"
+  resolved "https://registry.yarnpkg.com/@nebrob/event-emitter/-/event-emitter-1.0.9.tgz#e3793a501d01b1b64ed9d96ed4bfe771fe824c01"
+  integrity sha512-/IraZ5j6VmgaEkENVXipEkG2Zh13uE0RAI0x5gO0V9lFvfSNVZsG2050S8Z/8rvAwFUPH9fQ1qlLZRBa+FbWqQ==
+
 "@nodelib/fs.scandir@2.1.5":
   version "2.1.5"
   resolved "https://registry.npmjs.org/@nodelib/fs.scandir/-/fs.scandir-2.1.5.tgz"
