@@ -1,3 +1,4 @@
+import path from 'path';
 import { app, protocol, BrowserWindow } from 'electron';
 import { createProtocol } from 'vue-cli-plugin-electron-builder/lib';
 import installExtension, { VUEJS3_DEVTOOLS } from 'electron-devtools-installer';
@@ -22,7 +23,9 @@ async function createWindow() {
                 .ELECTRON_NODE_INTEGRATION as unknown) as boolean,
             contextIsolation: !(process.env
                 .ELECTRON_NODE_INTEGRATION as unknown) as boolean,
+            preload: path.join(__dirname, 'preload.js'),
         },
+        show: !isDevelopment,
     });
 
     if (process.env.WEBPACK_DEV_SERVER_URL) {
@@ -33,6 +36,10 @@ async function createWindow() {
         createProtocol('app');
         // Load the index.html when not in development
         win.loadURL('app://./index.html');
+    }
+
+    if (isDevelopment) {
+        win.showInactive();
     }
 }
 
