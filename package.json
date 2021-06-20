@@ -7,6 +7,12 @@
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint"
   },
+  "build": {
+    "appId": "your.id",
+    "mac": {
+      "category": "your.app.category.type"
+    }
+  },
   "dependencies": {
     "core-js": "^3.6.5",
     "vue": "^3.0.0",
